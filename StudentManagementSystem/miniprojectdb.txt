@@ -1,0 +1,22 @@
+Database Name: Student-DB
+
+departments table metadata
+
+CREATE TABLE [dbo].[departments] (
+    [DeptNo]   INT        NOT NULL,
+    [DeptName] NCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([DeptNo] ASC)
+);
+
+students table metadata
+
+CREATE TABLE [dbo].[students] (
+    [Id]     INT        NOT NULL,
+    [Name]   NCHAR (30) NOT NULL,
+    [Degree] NCHAR (10) NOT NULL,
+    [DeptNo] INT        NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
