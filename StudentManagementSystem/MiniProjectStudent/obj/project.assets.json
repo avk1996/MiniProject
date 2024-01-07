@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Prasad\\.nuget\\packages\\": {}
+    "C:\\Users\\sykes\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Abhishek\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\MiniProjectStudent.csproj",
+      "projectUniqueName": "C:\\Users\\sykes\\OneDrive\\Desktop\\CDAC sessions and assignments\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\MiniProjectStudent.csproj",
       "projectName": "MiniProjectStudent",
-      "projectPath": "F:\\Abhishek\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\MiniProjectStudent.csproj",
-      "packagesPath": "C:\\Users\\Prasad\\.nuget\\packages\\",
-      "outputPath": "F:\\Abhishek\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\obj\\",
+      "projectPath": "C:\\Users\\sykes\\OneDrive\\Desktop\\CDAC sessions and assignments\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\MiniProjectStudent.csproj",
+      "packagesPath": "C:\\Users\\sykes\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sykes\\OneDrive\\Desktop\\CDAC sessions and assignments\\MiniProject\\StudentManagementSystem\\MiniProjectStudent\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Prasad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sykes\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

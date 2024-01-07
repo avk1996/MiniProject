@@ -1,5 +1,7 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Net.Http.Headers;
+using System.Reflection.PortableExecutable;
 
 namespace MiniProjectStudent
 {
@@ -76,13 +78,20 @@ namespace MiniProjectStudent
                             DeleteStudent(int.Parse(Console.ReadLine()!));
                             break;
                         case 4:
+                            Console.WriteLine("Enter Id: ");
+                            Student stud = SelectStudent(int.Parse(Console.ReadLine()!));
+                            if(stud != null)
+                            {
+                                Console.WriteLine($"Student details- \nId : {stud.Id} \nName : {stud.Name} \nDegree : {stud.Degree} \nDeptNo : {stud.DeptNo}");
+                            }
+                            
                             break;
                         case 0:
                             exit = true;
-                            Console.WriteLine("bye...:(");
+                            Console.WriteLine("bye... :(");
                             break;
                         default:
-                            Console.WriteLine("Invali option...");
+                            Console.WriteLine("Invalid option...");
                             break;
 
                     }
@@ -109,7 +118,7 @@ namespace MiniProjectStudent
                     sqlConn.Open();
                     SqlCommand sqlDelete = new SqlCommand();
                     sqlDelete.Connection = sqlConn;
-                    sqlDelete.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlDelete.CommandType = CommandType.StoredProcedure;
                     sqlDelete.CommandText = "DeleteStudent";
                     sqlDelete.Parameters.AddWithValue("@Id", v);
                     sqlDelete.ExecuteNonQuery();
@@ -138,7 +147,7 @@ namespace MiniProjectStudent
                     sqlConn.Open();
                     SqlCommand sqlInsert = new SqlCommand();
                     sqlInsert.Connection = sqlConn;
-                    sqlInsert.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlInsert.CommandType = CommandType.StoredProcedure;
                     sqlInsert.CommandText = "InsertStudent";
                     sqlInsert.Parameters.AddWithValue("@Id",student.Id);
                     sqlInsert.Parameters.AddWithValue("@Id",student.Name);
@@ -154,6 +163,59 @@ namespace MiniProjectStudent
                 }
             }
         }
+
+        private static Student SelectStudent(int id)
+        {
+            Console.WriteLine("select student api");
+            using (SqlConnection sqlConn = new SqlConnection())
+            {
+                sqlConn.ConnectionString =
+                @"Data Source=(localdb)/ProjectModels;" +
+                "Initial Catalog=Student-DB;" +
+                "Integrated Security=True;" +
+                "Connect Timeout=30;";
+                try
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlSelect = new SqlCommand();
+                    sqlSelect.Connection = sqlConn;
+                    sqlSelect.CommandType = CommandType.Text;
+                    sqlSelect.CommandText = "SELECT * FROM students WHERE id = @id";
+                    sqlSelect.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = sqlSelect.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string name = reader.GetString("Name");
+                            int ID = reader.GetInt32("Id");
+                            string degree = reader.GetString("Degree");
+                            int deptNo = reader.GetInt32("DeptNo");
+
+                            return new Student
+                            {
+                                Id = ID,
+                                Name = name,
+                                Degree = degree,
+                                DeptNo = deptNo
+                            };
+
+                        }
+                        else
+                        {
+                            Console.WriteLine($"no records found Id: {id}");
+                            return null;
+                        }
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Student Selection Failed...");
+                    return null;
+                }
+            }
+        }
+
     }
     public class StudentException : ApplicationException
     {
