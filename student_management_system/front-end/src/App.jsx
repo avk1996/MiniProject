@@ -1,7 +1,5 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -9,6 +7,7 @@ function App() {
       <div className="bg-yellow-600 text-white text-4xl font-mono rounded-full p-4">
         Student Management System
       </div>
+      <Form title="Launch Course" />
     </>
   );
 }
