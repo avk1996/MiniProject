@@ -1,5 +1,8 @@
 package com.app.service;
 
-public interface CourseService {
+import com.app.entities.Course;
 
+
+public interface CourseService {
+	public String addCourse(Course course);
 }
