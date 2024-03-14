@@ -12,7 +12,7 @@ public interface CourseService {
 	public String addCourse(Course course);
 	
 	// read operation for course per id and all courses
-	public Course getCourseById(int id);
+	public Course getCourseById(Integer id);
 	
 	public List<Course> getAllCourses();
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.CourseDao;
@@ -12,10 +13,10 @@ import com.app.entities.Course;
 
 @Transactional
 @Service
-public class CourseServiceImple implements CourseService{
+public class CourseServiceImple implements CourseService {
 
 	@Autowired
-	private CourseDao courseDao;
+	private static CourseDao courseDao;
 
 	@Override
 	public String addCourse(Course course) {
@@ -26,8 +27,14 @@ public class CourseServiceImple implements CourseService{
 	}
 
 	@Override
-	public Course getCourseById(int id) {
-		return courseDao.getReferenceById(id);
+	public Course getCourseById(Integer id) {
+		Course course = courseDao.findOne(id);
+		System.out.println("in course service");
+		if(course == null) {
+			System.out.println("get data: "+course);
+			return null;			
+		}
+		return course;
 	}
 
 	@Override
