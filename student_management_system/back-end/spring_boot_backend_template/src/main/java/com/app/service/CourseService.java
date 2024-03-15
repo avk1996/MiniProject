@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.CourseDto;
 import com.app.entities.Course;
 
 
