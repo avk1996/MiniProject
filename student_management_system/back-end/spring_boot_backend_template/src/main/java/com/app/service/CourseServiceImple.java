@@ -24,7 +24,7 @@ public class CourseServiceImple implements CourseService {
 		else
 			return "failure";
 	}
-
+	
 	@Override
 	public Course getCourseById(Integer id) {
 		return courseDao.findById(id).get();
@@ -45,4 +45,21 @@ public class CourseServiceImple implements CourseService {
 		courseDao.deleteById(id);
 	}
 
+	@Override
+	public Course updateCourseById(Course course,Integer id) {
+		Course existingCourse = courseDao.findById(id).get();
+		
+		if(course.getCourseId() == null)
+			return null;
+		else {
+			existingCourse.setCourseTitle(course.getCourseTitle());
+			existingCourse.setEndDate(course.getEndDate());
+			existingCourse.setStartDate(course.getStartDate());
+			existingCourse.setFees(course.getFees());
+			existingCourse.setMinScore(course.getMinScore());
+			existingCourse = courseDao.save(existingCourse);
+			
+			return course;
+		}	
+	}
 }

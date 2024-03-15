@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dao.CourseDao;
 import com.app.dto.CourseDto;
 import com.app.entities.Course;
 import com.app.service.CourseService;
@@ -34,6 +36,14 @@ public class CourseController {
 	// update operations
 
 	// update by id
+	@PutMapping("/{id}")
+	public ResponseEntity<Course> updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
+		Course updateCourse = courseService.updateCourseById(course, id);
+		if (updateCourse != null)
+			return ResponseEntity.ok(updateCourse);
+		else
+			return ResponseEntity.notFound().build();
+	}
 
 	// Read operations
 
@@ -61,9 +71,9 @@ public class CourseController {
 	public String deleteCourseById(@PathVariable Integer id) {
 		try {
 			courseService.deleteCourseById(id);
-			return "success deleting "+id;
+			return "success deleting " + id;
 		} catch (NoSuchElementException e) {
-			return "failure deleting "+id+" error: "+e.getLocalizedMessage();
+			return "failure deleting " + id + " error: " + e.getLocalizedMessage();
 		}
 	}
 

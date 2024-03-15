@@ -12,6 +12,9 @@ public interface CourseService {
 	// create operation for new course
 	public String addCourse(Course course);
 	
+	// update operation for existing course
+	public Course updateCourseById(Course course,Integer id);
+	
 	// read operation for course per id and all courses
 	public Course getCourseById(Integer id);
 	
