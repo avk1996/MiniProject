@@ -35,4 +35,14 @@ public class CourseServiceImple implements CourseService {
 		return courseDao.findAll();
 	}
 
+	@Override
+	public void deleteAllCourses() {
+		courseDao.deleteAll();
+	}
+
+	@Override
+	public void deleteCourseById(Integer id) {
+		courseDao.deleteById(id);
+	}
+
 }

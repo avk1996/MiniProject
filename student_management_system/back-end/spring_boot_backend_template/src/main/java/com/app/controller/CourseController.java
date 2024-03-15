@@ -44,7 +44,7 @@ public class CourseController {
 			Course course = courseService.getCourseById(id);
 			return new ResponseEntity<Course>(course, HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Course>(HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -57,15 +57,26 @@ public class CourseController {
 	// delete operation of course
 
 	// delete by id
-	@DeleteMapping("{id}")
-	public String deleteCourseById() {
-		return null;
+	@DeleteMapping("/{id}")
+	public String deleteCourseById(@PathVariable Integer id) {
+		try {
+			courseService.deleteCourseById(id);
+			return "success deleting "+id;
+		} catch (NoSuchElementException e) {
+			return "failure deleting "+id+" error: "+e.getLocalizedMessage();
+		}
 	}
 
 	// delete all
 	@DeleteMapping
 	public String deleteAllCourses() {
-		return courseService.deleteAllCourses();
+		try {
+			courseService.deleteAllCourses();
+			return "success";
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "failure to delete all courses";
+		}
 	}
 
 }
