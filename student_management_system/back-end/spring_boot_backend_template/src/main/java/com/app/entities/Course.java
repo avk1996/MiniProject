@@ -23,7 +23,7 @@ public class Course{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer courseId;
 	
-	@Column(name = "course_title",unique = true)
+	@Column(name = "course_title")
 	private String courseTitle;
 	
 	@Column(name = "start_date")

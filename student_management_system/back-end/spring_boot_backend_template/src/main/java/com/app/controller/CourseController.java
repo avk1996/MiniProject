@@ -37,12 +37,15 @@ public class CourseController {
 
 	// update by id
 	@PutMapping("/{id}")
-	public ResponseEntity<Course> updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
+	public Course updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
+		course.setCourseId(id);
 		Course updateCourse = courseService.updateCourseById(course, id);
 		if (updateCourse != null)
-			return ResponseEntity.ok(updateCourse);
+//			return ResponseEntity.ok(updateCourse);
+			return updateCourse;
 		else
-			return ResponseEntity.notFound().build();
+			return null;
+//			return ResponseEntity.notFound().build();
 	}
 
 	// Read operations

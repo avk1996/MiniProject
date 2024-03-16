@@ -47,19 +47,20 @@ public class CourseServiceImple implements CourseService {
 
 	@Override
 	public Course updateCourseById(Course course,Integer id) {
-		Course existingCourse = courseDao.findById(id).get();
-		
-		if(course.getCourseId() == null)
-			return null;
-		else {
-			existingCourse.setCourseTitle(course.getCourseTitle());
-			existingCourse.setEndDate(course.getEndDate());
-			existingCourse.setStartDate(course.getStartDate());
-			existingCourse.setFees(course.getFees());
-			existingCourse.setMinScore(course.getMinScore());
-			existingCourse = courseDao.save(existingCourse);
+//		Course existingCourse = courseDao.findById(id).get();
+//		
+//		if(course.getCourseId() == null)
+//			return null;
+//		else {
+//			existingCourse.setCourseTitle(course.getCourseTitle());
+//			existingCourse.setEndDate(course.getEndDate());
+//			existingCourse.setStartDate(course.getStartDate());
+//			existingCourse.setFees(course.getFees());
+//			existingCourse.setMinScore(course.getMinScore());
+//			
 			
-			return course;
-		}	
+			
+			return courseDao.save(course);
+//		}	
 	}
 }

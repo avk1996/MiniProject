@@ -15,5 +15,10 @@ public class MovieApplication {
 	}
 	
 	// first end-point
+	// this lets the framework the following method is get end point
+//	@GetMapping("/root")
+//	public String apiRoot() {
+//		return "Hello world";
+//	}
 
 }
