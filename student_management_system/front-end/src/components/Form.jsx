@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { server } from "../server";
 
 function Form(props) {
   const [courseData, setCourseData] = useState({
@@ -14,14 +15,13 @@ function Form(props) {
     setCourseData({ ...courseData, [e.target.name]: e.target.value });
   };
 
-  const url = "http://localhost:8080/stuwork/sms";
   const handleSubmit = async (event) => {
     console.log("clicked submit button");
     console.log(courseData);
     event.preventDefault();
     const config = { headers: { "Content-Type": "application/json" } };
-    axios
-      .post(url, courseData, config)
+    await axios
+      .post(`${server}`, courseData, config)
       .then((result) => {
         console.log(result);
       })

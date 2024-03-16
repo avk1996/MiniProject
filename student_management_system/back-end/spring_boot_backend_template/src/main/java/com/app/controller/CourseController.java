@@ -30,6 +30,7 @@ public class CourseController {
 	private CourseService courseService;
 
 	// create operation of course
+	
 	@PostMapping
 	public String addCourse(@RequestBody Course course) {
 		return courseService.addCourse(course);
@@ -43,11 +44,9 @@ public class CourseController {
 		course.setCourseId(id);
 		Course updateCourse = courseService.updateCourseById(course, id);
 		if (updateCourse != null)
-//			return ResponseEntity.ok(updateCourse);
 			return updateCourse;
 		else
 			return null;
-//			return ResponseEntity.notFound().build();
 	}
 
 	// Read operations
@@ -89,8 +88,7 @@ public class CourseController {
 			courseService.deleteAllCourses();
 			return "success";
 		} catch (Exception e) {
-			// TODO: handle exception
-			return "failure to delete all courses";
+			return "failed to delete all courses";
 		}
 	}
 
