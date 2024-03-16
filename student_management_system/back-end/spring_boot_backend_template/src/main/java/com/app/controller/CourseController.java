@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +21,9 @@ import com.app.dto.CourseDto;
 import com.app.entities.Course;
 import com.app.service.CourseService;
 
-@RequestMapping("/sms")
 @RestController
+@RequestMapping("/sms")
+@CrossOrigin(origins = "http://localhost:5173/")
 public class CourseController {
 
 	@Autowired

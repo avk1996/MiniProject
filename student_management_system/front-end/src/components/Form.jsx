@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function Form(props) {
   const [courseData, setCourseData] = useState({
@@ -10,19 +11,23 @@ function Form(props) {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCourseData({ ...courseData, [name]: value });
+    setCourseData({ ...courseData, [e.target.name]: e.target.value });
   };
 
   const url = "http://localhost:8080/stuwork/sms";
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("inside submit");
-    const response = fetch(url, {
-      method: "POST",
-      mode: "cors",
-      credentials: "same-origin",
-    });
+  const handleSubmit = async (event) => {
+    console.log("clicked submit button");
+    console.log(courseData);
+    event.preventDefault();
+    const config = { headers: { "Content-Type": "application/json" } };
+    axios
+      .post(url, courseData, config)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -44,8 +49,8 @@ function Form(props) {
                 <td>
                   <input
                     type="text"
-                    id="course_title"
-                    name="course_title"
+                    id="courseTitle"
+                    name="courseTitle"
                     placeholder="course name"
                     onChange={handleChange}
                   />
@@ -60,8 +65,8 @@ function Form(props) {
                 <td>
                   <input
                     type="text"
-                    id="start_date"
-                    name="start_date"
+                    id="startDate"
+                    name="startDate"
                     placeholder="course start date"
                     onChange={handleChange}
                   />
@@ -76,8 +81,8 @@ function Form(props) {
                 <td>
                   <input
                     type="text"
-                    id="end_date"
-                    name="end_date"
+                    id="endDate"
+                    name="endDate"
                     placeholder="course end date"
                     onChange={handleChange}
                   />
@@ -108,8 +113,8 @@ function Form(props) {
                 <td>
                   <input
                     type="text"
-                    id="min_score"
-                    name="min_score"
+                    id="minScore"
+                    name="minScore"
                     placeholder="min score"
                     onChange={handleChange}
                   />
@@ -117,7 +122,9 @@ function Form(props) {
               </tr>
             </tbody>
           </table>
-          <button type="button">Add course</button>
+          <button type="submit" className="bg-yellow-600 rounded-full">
+            Add course
+          </button>
         </form>
       </div>
     </>
