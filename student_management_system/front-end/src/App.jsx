@@ -1,17 +1,40 @@
 import "./App.css";
-import Courses from "./components/Courses";
-import Form from "./components/Form";
+
+// components
+import FormTest from "./components/FormTest";
+import Home from "./components/Home";
+
+//routes
+import { Link, Routes, Route } from "react-router-dom";
+//navigation
+import { useNavigate } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <div className="bg-yellow-600 text-white text-4xl font-mono rounded-full p-4">
-        Student Management System
-      </div>
-      <Router>
-        <Form title="Launch Course" />
-        <Courses />
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/new-form"
+          element={
+            <FormTest
+              whichForm="new"
+              formTitle="Add new Course"
+              buttonType="Add Course"
+            />
+          }
+        />
+        <Route
+          path="/edit-form/:id"
+          element={
+            <FormTest
+              whichForm="edit"
+              formTitle="Update the Course"
+              buttonType="Update Course"
+            />
+          }
+        />
+      </Routes>
     </>
   );
 }

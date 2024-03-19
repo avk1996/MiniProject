@@ -1,10 +1,15 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { server } from "../server";
-import { useNavigate } from "react-router-dom";
 
-function Form(props) {
-  const [courseData, setCourseData] = useState({
+function EditForm(props) {
+  // from url id is extracted
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [newData, setNewData] = useState({
     course_title: "",
     start_date: "",
     end_date: "",
@@ -12,27 +17,41 @@ function Form(props) {
     min_score: 0,
   });
 
-  const handleChange = (e) => {
-    setCourseData({ ...courseData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (event) => {
-    console.log("clicked submit button");
-    console.log(courseData);
-    event.preventDefault();
-    const config = { headers: { "Content-Type": "application/json" } };
-    await axios
-      .post(`${server}`, courseData, config)
+  useEffect(() => {
+    axios
+      .get(`${server}/${id}`)
       .then((result) => {
-        navigate("/");
-        console.log(result);
+        setNewData(result.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("error getting data: " + err);
+      });
+  }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    console.log("handle submit clicked");
+    console.log("new data: " + newData.courseTitle);
+    event.preventDefault();
+    const config = { headers: { "Content-Type": "application/json" } };
+    axios
+      .put(`${server}/${id}`, newData, config)
+      .then((response) => {
+        console.log(response.data + " Update successful");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("Unable to update: " + err);
       });
   };
 
-  const navigate = useNavigate();
   const goHome = () => {
     navigate("/");
   };
@@ -70,7 +89,7 @@ function Form(props) {
                     type="text"
                     id="courseTitle"
                     name="courseTitle"
-                    placeholder="course name"
+                    value={newData.courseTitle}
                     onChange={handleChange}
                   />
                 </td>
@@ -86,7 +105,7 @@ function Form(props) {
                     type="text"
                     id="startDate"
                     name="startDate"
-                    placeholder="course start date"
+                    value={newData.startDate}
                     onChange={handleChange}
                   />
                 </td>
@@ -102,7 +121,7 @@ function Form(props) {
                     type="text"
                     id="endDate"
                     name="endDate"
-                    placeholder="course end date"
+                    value={newData.endDate}
                     onChange={handleChange}
                   />
                 </td>
@@ -115,10 +134,10 @@ function Form(props) {
                 </td>
                 <td>
                   <input
-                    type="text"
+                    type="number"
                     id="fees"
                     name="fees"
-                    placeholder="fees"
+                    value={newData.fees}
                     onChange={handleChange}
                   />
                 </td>
@@ -131,28 +150,30 @@ function Form(props) {
                 </td>
                 <td>
                   <input
-                    type="text"
+                    type="number"
                     id="minScore"
                     name="minScore"
-                    placeholder="min score"
+                    value={newData.minScore}
                     onChange={handleChange}
                   />
                 </td>
               </tr>
+              <tr>
+                <td colSpan={2}>
+                  <button
+                    type="submit"
+                    className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
+                  >
+                    {props.buttonName}
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
-          <div>
-            <button
-              type="submit"
-              className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
-            >
-              Add course
-            </button>
-          </div>
         </form>
       </div>
     </>
   );
 }
 
-export default Form;
+export default EditForm;

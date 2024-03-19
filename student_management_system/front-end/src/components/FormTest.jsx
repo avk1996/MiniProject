@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { server } from "../server";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function Form(props) {
-  const [courseData, setCourseData] = useState({
+function FormTest(props) {
+  // update form data:
+  const navigate = useNavigate();
+
+  const [newData, setNewData] = useState({
     course_title: "",
     start_date: "",
     end_date: "",
@@ -13,26 +16,63 @@ function Form(props) {
   });
 
   const handleChange = (e) => {
-    setCourseData({ ...courseData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setNewData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
+
+  const { id } = useParams();
+
+  if (props.whichForm === "edit") {
+    // page loading data
+    useEffect(() => {
+      console.log(`inside ${props.whichForm}`);
+
+      axios
+        .get(`${server}/${id}`)
+        .then((result) => {
+          setNewData(result.data);
+        })
+        .catch((err) => {
+          console.log("error getting data: " + err);
+        });
+    }, [id]);
+
+    // console.log(
+    //   `${newData.courseTitle}, ${newData.startDate}, ${newData.endDate}, ${newData.fees}, ${newData.minScore}`
+    // );
+  }
 
   const handleSubmit = async (event) => {
     console.log("clicked submit button");
-    console.log(courseData);
     event.preventDefault();
     const config = { headers: { "Content-Type": "application/json" } };
-    await axios
-      .post(`${server}`, courseData, config)
-      .then((result) => {
-        navigate("/");
-        console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    console.log(newData);
+    if (props.whichForm === "new") {
+      await axios
+        .post(`${server}`, newData, config)
+        .then((result) => {
+          console.log(result.data);
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (props.whichForm === "edit") {
+      axios
+        .put(`${server}/${id}`, newData, config)
+        .then((response) => {
+          console.log(response.data + " Update successful");
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log("Unable to update: " + err);
+        });
+    }
   };
 
-  const navigate = useNavigate();
   const goHome = () => {
     navigate("/");
   };
@@ -49,7 +89,7 @@ function Form(props) {
       </div>
       <div className="flex justify-center">
         <h1 className="p-2 rounded text-white cursor-pointer duration-100 hover:text-orange-500">
-          {props.title}
+          {props.formTitle}
         </h1>
       </div>
       <div className="m-4 p-4">
@@ -70,7 +110,14 @@ function Form(props) {
                     type="text"
                     id="courseTitle"
                     name="courseTitle"
-                    placeholder="course name"
+                    placeholder={
+                      props.whichForm === "new" ? "course name" : undefined
+                    }
+                    value={
+                      props.whichForm === "new"
+                        ? undefined
+                        : newData.courseTitle
+                    }
                     onChange={handleChange}
                   />
                 </td>
@@ -86,7 +133,14 @@ function Form(props) {
                     type="text"
                     id="startDate"
                     name="startDate"
-                    placeholder="course start date"
+                    placeholder={
+                      props.whichForm === "new"
+                        ? "course start date"
+                        : undefined
+                    }
+                    value={
+                      props.whichForm === "new" ? undefined : newData.startDate
+                    }
                     onChange={handleChange}
                   />
                 </td>
@@ -102,7 +156,12 @@ function Form(props) {
                     type="text"
                     id="endDate"
                     name="endDate"
-                    placeholder="course end date"
+                    placeholder={
+                      props.whichForm === "new" ? "course end date" : undefined
+                    }
+                    value={
+                      props.whichForm === "new" ? undefined : newData.endDate
+                    }
                     onChange={handleChange}
                   />
                 </td>
@@ -118,7 +177,8 @@ function Form(props) {
                     type="text"
                     id="fees"
                     name="fees"
-                    placeholder="fees"
+                    placeholder={props.whichForm === "new" ? "fees" : ""}
+                    value={props.whichForm === "new" ? undefined : newData.fees}
                     onChange={handleChange}
                   />
                 </td>
@@ -134,7 +194,12 @@ function Form(props) {
                     type="text"
                     id="minScore"
                     name="minScore"
-                    placeholder="min score"
+                    placeholder={
+                      props.whichForm === "new" ? "min score" : undefined
+                    }
+                    value={
+                      props.whichForm === "new" ? undefined : newData.minScore
+                    }
                     onChange={handleChange}
                   />
                 </td>
@@ -146,7 +211,7 @@ function Form(props) {
               type="submit"
               className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
             >
-              Add course
+              {props.buttonType}
             </button>
           </div>
         </form>
@@ -155,4 +220,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default FormTest;

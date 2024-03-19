@@ -23,7 +23,6 @@ import com.app.service.CourseService;
 
 @RestController
 @RequestMapping("/sms")
-@CrossOrigin(origins = "http://localhost:5173/")
 public class CourseController {
 
 	@Autowired
@@ -35,7 +34,8 @@ public class CourseController {
 	public String addCourse(@RequestBody Course course) {
 		return courseService.addCourse(course);
 	}
-
+	
+	
 	// update operations
 
 	// update by id
