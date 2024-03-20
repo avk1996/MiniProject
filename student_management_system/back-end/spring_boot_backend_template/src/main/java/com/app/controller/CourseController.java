@@ -6,7 +6,6 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dao.CourseDao;
-import com.app.dto.CourseDto;
 import com.app.entities.Course;
 import com.app.service.CourseService;
 
@@ -30,7 +27,7 @@ public class CourseController {
 
 	// create operation of course
 	
-	@PostMapping
+	@PostMapping("/course/")
 	public String addCourse(@RequestBody Course course) {
 		return courseService.addCourse(course);
 	}
@@ -39,10 +36,10 @@ public class CourseController {
 	// update operations
 
 	// update by id
-	@PutMapping("/{id}")
+	@PutMapping("/course/{id}")
 	public Course updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
 		course.setCourseId(id);
-		Course updateCourse = courseService.updateCourseById(course, id);
+		Course updateCourse = courseService.updateCourseById(course);
 		if (updateCourse != null)
 			return updateCourse;
 		else
@@ -52,7 +49,7 @@ public class CourseController {
 	// Read operations
 
 	// get by id
-	@GetMapping("/{id}")
+	@GetMapping("/course/{id}")
 	public ResponseEntity<Course> getCourseById(@PathVariable Integer id) {
 		try {
 			Course course = courseService.getCourseById(id);
@@ -63,7 +60,7 @@ public class CourseController {
 	}
 
 	// get all
-	@GetMapping
+	@GetMapping("/course/")
 	public List<Course> getAllCourses() {
 		return courseService.getAllCourses();
 	}
@@ -71,7 +68,7 @@ public class CourseController {
 	// delete operation of course
 
 	// delete by id
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/course/{id}")
 	public String deleteCourseById(@PathVariable Integer id) {
 		try {
 			courseService.deleteCourseById(id);
@@ -82,7 +79,7 @@ public class CourseController {
 	}
 
 	// delete all
-	@DeleteMapping
+	@DeleteMapping("/course/")
 	public String deleteAllCourses() {
 		try {
 			courseService.deleteAllCourses();

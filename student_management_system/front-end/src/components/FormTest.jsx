@@ -100,19 +100,19 @@ function FormTest(props) {
                 <td>
                   <label
                     className="text-left p-2 text-lg"
-                    htmlFor="course_title"
+                    htmlFor="courseTitle"
                   >
                     Course title:{" "}
                   </label>
                 </td>
                 <td>
+                  {console.log("----------------")}
+                  {console.log("input course title")}
                   <input
                     type="text"
                     id="courseTitle"
                     name="courseTitle"
-                    placeholder={
-                      props.whichForm === "new" ? "course name" : undefined
-                    }
+                    placeholder={props.whichForm === "new" ? "course name" : ""}
                     value={
                       props.whichForm === "new"
                         ? undefined
@@ -124,11 +124,12 @@ function FormTest(props) {
               </tr>
               <tr>
                 <td>
-                  <label className="text-left p-2 text-lg" htmlFor="start_date">
+                  <label className="text-left p-2 text-lg" htmlFor="startDate">
                     Start date:{" "}
                   </label>
                 </td>
                 <td>
+                  {console.log("input start date")}
                   <input
                     type="text"
                     id="startDate"
@@ -147,11 +148,12 @@ function FormTest(props) {
               </tr>
               <tr>
                 <td>
-                  <label className="text-left p-2 text-lg" htmlFor="end_date">
+                  <label className="text-left p-2 text-lg" htmlFor="endDate">
                     End date:{" "}
                   </label>
                 </td>
                 <td>
+                  {console.log("input end date")}
                   <input
                     type="text"
                     id="endDate"
@@ -173,6 +175,7 @@ function FormTest(props) {
                   </label>
                 </td>
                 <td>
+                  {console.log("input fees")}
                   <input
                     type="text"
                     id="fees"
@@ -185,11 +188,12 @@ function FormTest(props) {
               </tr>
               <tr>
                 <td>
-                  <label className="text-left p-2 text-lg" htmlFor="min_score">
+                  <label className="text-left p-2 text-lg" htmlFor="minScore">
                     Min score:{" "}
                   </label>
                 </td>
                 <td>
+                  {console.log("input min score")}
                   <input
                     type="text"
                     id="minScore"
@@ -213,6 +217,7 @@ function FormTest(props) {
             >
               {props.buttonType}
             </button>
+            {console.log("----------------")}
           </div>
         </form>
       </div>
