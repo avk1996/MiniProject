@@ -1,6 +1,13 @@
 package com.app.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +37,8 @@ public class Student {
 	@Column(name="score_obtained")
 	private double scoreObtained;
 	
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name = "course_id")
 	private Course course;
 	
 }

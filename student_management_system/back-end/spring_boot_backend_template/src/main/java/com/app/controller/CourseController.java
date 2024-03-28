@@ -19,7 +19,7 @@ import com.app.entities.Course;
 import com.app.service.CourseService;
 
 @RestController
-@RequestMapping("/sms")
+@RequestMapping("/sms/course")
 public class CourseController {
 
 	@Autowired
@@ -27,7 +27,7 @@ public class CourseController {
 
 	// create operation of course
 	
-	@PostMapping("/course/")
+	@PostMapping
 	public String addCourse(@RequestBody Course course) {
 		return courseService.addCourse(course);
 	}
@@ -36,7 +36,7 @@ public class CourseController {
 	// update operations
 
 	// update by id
-	@PutMapping("/course/{id}")
+	@PutMapping("/{id}")
 	public Course updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
 		course.setCourseId(id);
 		Course updateCourse = courseService.updateCourseById(course);
@@ -49,7 +49,7 @@ public class CourseController {
 	// Read operations
 
 	// get by id
-	@GetMapping("/course/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Course> getCourseById(@PathVariable Integer id) {
 		try {
 			Course course = courseService.getCourseById(id);
@@ -60,7 +60,7 @@ public class CourseController {
 	}
 
 	// get all
-	@GetMapping("/course/")
+	@GetMapping
 	public List<Course> getAllCourses() {
 		return courseService.getAllCourses();
 	}
@@ -68,7 +68,7 @@ public class CourseController {
 	// delete operation of course
 
 	// delete by id
-	@DeleteMapping("/course/{id}")
+	@DeleteMapping("/{id}")
 	public String deleteCourseById(@PathVariable Integer id) {
 		try {
 			courseService.deleteCourseById(id);
@@ -79,7 +79,7 @@ public class CourseController {
 	}
 
 	// delete all
-	@DeleteMapping("/course/")
+	@DeleteMapping
 	public String deleteAllCourses() {
 		try {
 			courseService.deleteAllCourses();

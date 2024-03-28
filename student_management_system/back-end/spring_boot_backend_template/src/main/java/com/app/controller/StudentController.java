@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.StudentDto;
 import com.app.entities.Student;
 import com.app.service.StudentService;
 
 @RestController
-@RequestMapping("/sms")
+@RequestMapping("/sms/student")
 public class StudentController {
 	
 	@Autowired
@@ -27,41 +28,67 @@ public class StudentController {
 	
 	// create new student 
 	
-	@PostMapping("/student")
-	public String addStudent(@RequestBody Student student) {
-		return studentService.addStudent(student);
+	@PostMapping
+	public ResponseEntity<?> addStudent(@RequestBody StudentDto student) {
+		try {
+			studentService.addStudent(student);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	// update student info
 	
-	@PutMapping("/student/{id}")
-	public Student updateStudent(@RequestBody Student student, @PathVariable Integer id){
-		student.setStudentsId(id);
-		return studentService.updateStudent(student);
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updateStudent(@PathVariable Integer id,@RequestBody StudentDto student){
+		try {
+			// check if the student is present or not 
+			StudentDto oldStudent = studentService.showStudentById(id);
+			if(oldStudent == null)
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("not found student");
+			
+			// pass from request body the required fields for updatation
+			String firstName = student.getFirstName();
+
+			String lastName = student.getLastName();
+
+			String email = student.getEmail();
+
+			double scoreObtained = student.getScoreObtained();
+			
+			StudentDto updateStudent = studentService.updateStudent(new StudentDto(id,firstName,lastName,email,scoreObtained));
+			
+			return new ResponseEntity<>(updateStudent,HttpStatus.CREATED);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		}
 	}
 	
 	// read student info
 	
-	@GetMapping("/student/")
+	@GetMapping
 	public List<Student> showStudents() {
 		return studentService.showStudents();
 	}
 	
-	@GetMapping("/student/{id}")
-	public ResponseEntity<Student> showStudentById(@PathVariable Integer id) {
+	@GetMapping("/{id}")
+	public ResponseEntity<?> showStudentById(@PathVariable Integer id) {
 		try {
-			Student student = studentService.showStudentById(id);
-			return new ResponseEntity<Student>(student,HttpStatus.OK);
+			StudentDto student = studentService.showStudentById(id);
+			return new ResponseEntity<>(student,HttpStatus.OK);
 			
 		} catch (NoSuchElementException e) {
-			return new ResponseEntity<Student>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 	}
 	
 	// delete student info
 	
-	@DeleteMapping("/student/")
+	@DeleteMapping
 	public String deleteStudents() {
 		try {
 			studentService.deleteStudents();
@@ -71,7 +98,7 @@ public class StudentController {
 		}
 	}
 	
-	@DeleteMapping("/student/{id}")
+	@DeleteMapping("/{id}")
 	public String deleteStudentById(@PathVariable Integer id) {
 		try {
 			if(showStudentById(id) == null)

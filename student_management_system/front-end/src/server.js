@@ -1,1 +1,1 @@
-export const server = "http://localhost:8080/stuwork/sms";
+export const server = "http://localhost:8080/stuwork/sms/course";

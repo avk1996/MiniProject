@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.StudentDao;
+import com.app.dto.StudentDto;
 import com.app.entities.Student;
 
 @Transactional
@@ -16,18 +18,26 @@ public class StudentServiceImple implements StudentService {
 
 	@Autowired
 	private StudentDao studentDao;
+	
+	@Autowired
+	private ModelMapper mapper;	
 
 	@Override
-	public String addStudent(Student student) {
-		if (studentDao.save(student) != null)
-			return "success";
-		else
-			return "failure";
+	public void addStudent(StudentDto student) {
+		Student newStudent = mapper.map(student,Student.class);
+		studentDao.save(newStudent);
 	}
 
 	@Override
-	public Student updateStudent(Student student) {
-		return studentDao.save(student);
+	public StudentDto updateStudent(StudentDto student) {
+		Student existingStudent = studentDao.findById(student.getStudentsId()).get();
+		
+		existingStudent.setFirstName(student.getFirstName());
+		existingStudent.setLastName(student.getLastName());
+		existingStudent.setEmail(student.getEmail());
+		existingStudent.setScoreObtained(student.getScoreObtained());
+		
+		return mapStudentToDTO(existingStudent);
 	}
 
 	@Override
@@ -36,8 +46,15 @@ public class StudentServiceImple implements StudentService {
 	}
 
 	@Override
-	public Student showStudentById(Integer id) {
-		return studentDao.findById(id).get();
+	public StudentDto showStudentById(Integer id) {
+		Student student = studentDao.findById(id).get();
+		return mapStudentToDTO(student);
+	}
+
+	
+	private StudentDto mapStudentToDTO(Student student) {
+		StudentDto studentDto = mapper.map(student,StudentDto.class);
+		return studentDto;
 	}
 
 	@Override
