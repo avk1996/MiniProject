@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { server } from "../../server";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCancel, faCow } from "@fortawesome/free-solid-svg-icons";
 
 function FormTest(props) {
   // update form data:
@@ -207,13 +209,26 @@ function FormTest(props) {
               </tr>
             </tbody>
           </table>
-          <div>
-            <button
-              type="submit"
-              className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
-            >
-              {props.buttonType}
-            </button>
+          <div className="flex justify-between">
+            <div className="justify-start">
+              <button
+                type="button"
+                className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
+                onClick={() => navigate("/")}
+              >
+                <FontAwesomeIcon icon={faCancel} />
+                &nbsp; Cancel
+              </button>
+            </div>
+            <div className="justify-end">
+              <button
+                type="submit"
+                className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
+              >
+                <FontAwesomeIcon icon={faCow} />
+                &nbsp; {props.buttonType}
+              </button>
+            </div>
           </div>
         </form>
       </div>

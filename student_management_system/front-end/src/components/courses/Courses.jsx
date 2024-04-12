@@ -2,11 +2,18 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { server } from "../../server";
 import { useNavigate } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDesktop,
+  faEdit,
+  faMagnifyingGlass,
+  faTrash,
+  faUserAstronaut,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Courses(props) {
   const [courseData, setCourseData] = useState([]);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -25,7 +32,6 @@ function Courses(props) {
     navigate(`/student-table/${courseId}`);
   };
 
-  const navigate = useNavigate();
   const editCourse = (courseId) => {
     console.log("edit course clicked");
     navigate(`/edit-form/${courseId}`);
@@ -36,7 +42,7 @@ function Courses(props) {
     const confirm = window.confirm("Are you sure to delete this course?");
     if (confirm) {
       axios
-        .delete(`${server}/${courseId}`)
+        .delete(`${server}/course/${courseId}`)
         .then((result) => {
           console.log(`deleted ${result.data}`);
           window.location.reload();
@@ -103,7 +109,7 @@ function Courses(props) {
                     showCourse(course.courseId);
                   }}
                 >
-                  Details
+                  <FontAwesomeIcon icon={faUserAstronaut} />
                 </button>
               </td>
               <td>
@@ -113,7 +119,7 @@ function Courses(props) {
                     editCourse(course.courseId);
                   }}
                 >
-                  Edit
+                  <FontAwesomeIcon icon={faEdit} />
                 </button>
               </td>
               <td>
@@ -123,7 +129,7 @@ function Courses(props) {
                     deleteCourse(course.courseId);
                   }}
                 >
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </td>
             </tr>

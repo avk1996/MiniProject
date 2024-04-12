@@ -2,6 +2,16 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { server } from "../../server";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDesktop,
+  faEdit,
+  faLeftLong,
+  faMagnifyingGlass,
+  faPlusCircle,
+  faTrash,
+  faUserAstronaut,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Students() {
   const [studentData, setStudentData] = useState([]);
@@ -59,13 +69,13 @@ function Students() {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex justify-between">
         <div className="justify-start m-3">
           <button
             className="bg-green-500 text-white hover:text-black hover:bg-white"
             onClick={backToCourses}
           >
-            Courses
+            <FontAwesomeIcon icon={faLeftLong} /> &nbsp; Courses
           </button>
         </div>
         <div className="justify-end m-3">
@@ -73,7 +83,8 @@ function Students() {
             className="bg-green-500 text-white hover:text-black hover:bg-white"
             onClick={addNewStudent}
           >
-            Add Student
+            <FontAwesomeIcon icon={faPlusCircle} />
+            &nbsp;Add Student
           </button>
         </div>
       </div>
@@ -125,7 +136,7 @@ function Students() {
                     showStudent(student.studentsId);
                   }}
                 >
-                  Details
+                  <FontAwesomeIcon icon={faUserAstronaut} />
                 </button>
               </td>
               <td>
@@ -135,7 +146,7 @@ function Students() {
                     editStudent(student.studentsId);
                   }}
                 >
-                  Edit
+                  <FontAwesomeIcon icon={faEdit} />
                 </button>
               </td>
               <td>
@@ -145,7 +156,7 @@ function Students() {
                     deleteStudent(student.studentsId);
                   }}
                 >
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </td>
             </tr>

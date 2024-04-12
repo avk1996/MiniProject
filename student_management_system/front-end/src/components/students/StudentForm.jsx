@@ -2,6 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { server } from "../../server";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faCancel,
+  faCow,
+  faHomeAlt,
+  faLeftLong,
+  faSubscript,
+} from "@fortawesome/free-solid-svg-icons";
 
 function FormTest(props) {
   // update form data:
@@ -83,13 +92,14 @@ function FormTest(props) {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex justify-between">
         <div className="m-3 justify-end">
           <button
             className="bg-orange-600 text-lg p-2 rounded-full duration-150 hover:bg-black hover:scale-105"
             onClick={studentsTable}
           >
-            Students Table
+            <FontAwesomeIcon icon={faLeftLong} />
+            &nbsp; Students Table
           </button>
         </div>
         <div className="m-3 justify-start">
@@ -97,7 +107,7 @@ function FormTest(props) {
             className="bg-orange-600 text-lg p-2 rounded-full duration-150 hover:bg-black hover:scale-105"
             onClick={goHome}
           >
-            Home
+            <FontAwesomeIcon icon={faHomeAlt} /> &nbsp; Home
           </button>
         </div>
       </div>
@@ -220,13 +230,26 @@ function FormTest(props) {
               </tr>
             </tbody>
           </table>
-          <div>
-            <button
-              type="submit"
-              className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
-            >
-              {props.buttonType}
-            </button>
+          <div className="flex justify-between">
+            <div className="justify-start">
+              <button
+                type="button"
+                className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
+                onClick={() => navigate(`/student-table/${courseId}`)}
+              >
+                <FontAwesomeIcon icon={faCancel} />
+                &nbsp; Cancel
+              </button>
+            </div>
+            <div className="justify-end">
+              <button
+                type="submit"
+                className="rounded-full p-3 m-3 border-4 border-orange-500 cursor-pointer duration-300 hover:bg-orange-500 hover:text-black hover:border-white"
+              >
+                <FontAwesomeIcon icon={faCow} />
+                &nbsp; {props.buttonType}
+              </button>
+            </div>
           </div>
         </form>
       </div>

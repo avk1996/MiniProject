@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 // react router dom
 import { useNavigate } from "react-router-dom";
@@ -22,7 +24,7 @@ function Home() {
           className="bg-green-500 text-white hover:text-black hover:bg-white"
           onClick={addNewCourse}
         >
-          Add Course
+          <FontAwesomeIcon icon={faPlusCircle} /> &nbsp;Add Course
         </button>
       </div>
       <Courses />
