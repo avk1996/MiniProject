@@ -1,55 +1,82 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { server } from "../server";
-import { useNavigate } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { server } from "../../server";
+import { useNavigate, useParams } from "react-router-dom";
 
-function Courses(props) {
-  const [courseData, setCourseData] = useState([]);
-  // const navigate = useNavigate();
+function Students() {
+  const [studentData, setStudentData] = useState([]);
+  const { courseId } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${server}`)
+      .get(`${server}/student`)
       .then((result) => {
         // console.log(result.data);
-        setCourseData(result.data);
+        setStudentData(result.data);
       })
       .catch((err) => {
         console.log("data recived failed due to Error: " + err);
       });
   }, []);
 
-  const showCourse = (courseId) => {
-    console.log("show course clicked " + courseId);
+  const showStudent = (studentId) => {
+    console.log("show student clicked " + studentId);
   };
 
-  const navigate = useNavigate();
-  const editCourse = (courseId) => {
-    console.log("edit course clicked");
-    navigate(`/edit-form/${courseId}`);
+  const editStudent = (studentId) => {
+    console.log("edit student clicked");
+    navigate(`/student-edit-form/${courseId}/${studentId}`);
   };
 
-  const deleteCourse = (courseId) => {
-    console.log("delete course clicked " + courseId);
-    const confirm = window.confirm("Are you sure to delete this course?");
+  const deleteStudent = (studentId) => {
+    console.log("delete student clicked " + studentId);
+    const confirm = window.confirm("Are you sure to delete this student?");
     if (confirm) {
       axios
-        .delete(`${server}/${courseId}`)
+        .delete(`${server}/student/${studentId}`)
         .then((result) => {
           console.log(`deleted ${result.data}`);
           window.location.reload();
         })
         .catch((err) => {
-          console.log(`Error deleting data`);
+          console.log(`Error deleting data : ${err}`);
         });
     } else {
       console.log("data not deleted");
     }
   };
 
+  const addNewStudent = () => {
+    console.log("add new student clicked");
+    navigate(`/student-new-form/${courseId}`);
+  };
+
+  const backToCourses = () => {
+    navigate("/");
+  };
+
   return (
     <>
+      <div className="flex">
+        <div className="justify-start m-3">
+          <button
+            className="bg-green-500 text-white hover:text-black hover:bg-white"
+            onClick={backToCourses}
+          >
+            Courses
+          </button>
+        </div>
+        <div className="justify-end m-3">
+          <button
+            className="bg-green-500 text-white hover:text-black hover:bg-white"
+            onClick={addNewStudent}
+          >
+            Add Student
+          </button>
+        </div>
+      </div>
       <table className="w-full border-2 overflow-hidden">
         <thead className="bg-orange-400 border-b-2 text-white">
           <tr>
@@ -57,49 +84,45 @@ function Courses(props) {
               Sr. No.
             </th>
             <th className="p-3 text-left  font-semibold tracking-wide">
-              Title
+              Email
             </th>
             <th className="p-3 text-left  font-semibold tracking-wide">
-              Starting at
+              First Name
             </th>
             <th className="p-3 text-left  font-semibold tracking-wide">
-              Ending at
+              Last Name
             </th>
-            <th className="p-3 text-left  font-semibold tracking-wide">Fees</th>
             <th className="p-3 text-left  font-semibold tracking-wide">
-              Required Score
+              Scores Obtained
             </th>
             <th colSpan={3}>Action</th>
           </tr>
         </thead>
         <tbody className="divide-y-2">
-          {courseData.map((course, index) => (
+          {studentData.map((student, index) => (
             <tr
               className={
                 (index % 2 == 0 ? "bg-gray-700" : "bg-gray-500") +
                 "cursor-pointer duration-100 hover:bg-white hover:text-black hover:scale-105 overflow-hidden"
               }
-              key={course.courseId}
+              key={student.studentsId}
             >
               <td className="p-2 text-lg hover:bg-gray-500">{index + 1}</td>
+              <td className="p-2 text-lg hover:bg-gray-500">{student.email}</td>
               <td className="p-2 text-lg hover:bg-gray-500">
-                {course.courseTitle}
+                {student.firstName}
               </td>
               <td className="p-2 text-lg hover:bg-gray-500">
-                {course.startDate}
+                {student.lastName}
               </td>
               <td className="p-2 text-lg hover:bg-gray-500">
-                {course.endDate}
-              </td>
-              <td className="p-2 text-lg hover:bg-gray-500">{course.fees}</td>
-              <td className="p-2 text-lg hover:bg-gray-500">
-                {course.minScore}
+                {student.scoreObtained}
               </td>
               <td>
                 <button
                   className="bg-green-600 m-3"
                   onClick={() => {
-                    showCourse(course.courseId);
+                    showStudent(student.studentsId);
                   }}
                 >
                   Details
@@ -109,7 +132,7 @@ function Courses(props) {
                 <button
                   className="bg-blue-600 m-3"
                   onClick={() => {
-                    editCourse(course.courseId);
+                    editStudent(student.studentsId);
                   }}
                 >
                   Edit
@@ -119,7 +142,7 @@ function Courses(props) {
                 <button
                   className="bg-red-600 m-3"
                   onClick={() => {
-                    deleteCourse(course.courseId);
+                    deleteStudent(student.studentsId);
                   }}
                 >
                   Delete
@@ -133,4 +156,4 @@ function Courses(props) {
   );
 }
 
-export default Courses;
+export default Students;

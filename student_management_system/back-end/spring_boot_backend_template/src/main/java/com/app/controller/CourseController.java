@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.CourseDto;
 import com.app.entities.Course;
 import com.app.service.CourseService;
 
@@ -26,34 +27,51 @@ public class CourseController {
 	private CourseService courseService;
 
 	// create operation of course
-	
+
 	@PostMapping
-	public String addCourse(@RequestBody Course course) {
-		return courseService.addCourse(course);
+	public ResponseEntity<?> addCourse(@RequestBody CourseDto course) {
+		try {
+			courseService.addCourse(course);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
-	
+
 	// update operations
 
 	// update by id
 	@PutMapping("/{id}")
-	public Course updateCourseById(@RequestBody Course course, @PathVariable Integer id) {
-		course.setCourseId(id);
-		Course updateCourse = courseService.updateCourseById(course);
-		if (updateCourse != null)
-			return updateCourse;
-		else
-			return null;
+	public ResponseEntity<?> updateCourseById(@RequestBody CourseDto course, @PathVariable Integer id) {
+		try {
+			// check for the existance of course by id
+			CourseDto existingCourse = courseService.getCourseById(id);
+			if (existingCourse == null)
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("course not found");
+
+			String courseTitle = course.getCourseTitle();
+			String startDate = course.getStartDate();
+			String endDate = course.getEndDate();
+			double fees = course.getFees();
+			double minScore = course.getMinScore();
+//			System.out.println("In course controller: " + id + " " + courseTitle + " " + startDate + " " + endDate + " "
+//					+ fees + " " + minScore);
+			CourseDto updateCourse = courseService
+					.updateCourseById(new CourseDto(id, courseTitle, startDate, endDate, fees, minScore));
+			return new ResponseEntity<>(updateCourse, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	// Read operations
 
 	// get by id
 	@GetMapping("/{id}")
-	public ResponseEntity<Course> getCourseById(@PathVariable Integer id) {
+	public ResponseEntity<?> getCourseById(@PathVariable Integer id) {
 		try {
-			Course course = courseService.getCourseById(id);
-			return new ResponseEntity<Course>(course, HttpStatus.OK);
+			CourseDto course = courseService.getCourseById(id);
+			return new ResponseEntity<>(course, HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<Course>(HttpStatus.NOT_FOUND);
 		}
@@ -61,20 +79,26 @@ public class CourseController {
 
 	// get all
 	@GetMapping
-	public List<Course> getAllCourses() {
-		return courseService.getAllCourses();
+	public ResponseEntity<?> getAllCourses() {
+		try {
+			List<CourseDto> courses = courseService.getAllCourses();
+			return new ResponseEntity<>(courses, HttpStatus.OK);
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	// delete operation of course
 
 	// delete by id
 	@DeleteMapping("/{id}")
-	public String deleteCourseById(@PathVariable Integer id) {
+	public ResponseEntity<?> deleteCourseById(@PathVariable Integer id) {
 		try {
 			courseService.deleteCourseById(id);
-			return "success deleting " + id;
+			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			return "failure deleting " + id + " error: " + e.getLocalizedMessage();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
 		}
 	}
 

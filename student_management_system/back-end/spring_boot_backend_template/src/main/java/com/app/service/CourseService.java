@@ -10,15 +10,15 @@ public interface CourseService {
 	// basic curd operations
 	
 	// create operation for new course
-	public String addCourse(Course course);
+	public void addCourse(CourseDto course);
 	
 	// update operation for existing course
-	public Course updateCourseById(Course course);
+	public CourseDto updateCourseById(CourseDto course);
 	
 	// read operation for course per id and all courses
-	public Course getCourseById(Integer id);
+	public CourseDto getCourseById(Integer id);
 	
-	public List<Course> getAllCourses();
+	public List<CourseDto> getAllCourses();
 	
 	// delete operation for all courses
 	

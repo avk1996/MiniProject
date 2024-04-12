@@ -1,13 +1,13 @@
 import "./App.css";
 
 // components
-import FormTest from "./components/FormTest";
-import Home from "./components/Home";
+import Form from "./components/courses/CourseForm";
+import Home from "./components/pages/Home";
+import StudentForm from "./components/students/StudentForm";
 
 //routes
-import { Link, Routes, Route } from "react-router-dom";
-//navigation
-import { useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Students from "./components/students/Students";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route
           path="/new-form"
           element={
-            <FormTest
+            <Form
               whichForm="new"
               formTitle="Add new Course"
               buttonType="Add Course"
@@ -27,10 +27,31 @@ function App() {
         <Route
           path="/edit-form/:id"
           element={
-            <FormTest
+            <Form
               whichForm="edit"
               formTitle="Update the Course"
               buttonType="Update Course"
+            />
+          }
+        />
+        <Route path="/student-table/:courseId" element={<Students />} />
+        <Route
+          path="/student-new-form/:courseId"
+          element={
+            <StudentForm
+              whichForm="new"
+              formTitle="Add Student Info"
+              buttonType="Add Student"
+            />
+          }
+        />
+        <Route
+          path="/student-edit-form/:courseId/:studentId"
+          element={
+            <StudentForm
+              whichForm="edit"
+              formTitle="Update Student Info"
+              buttonType="Update Student"
             />
           }
         />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { server } from "../server";
+import { server } from "../../server";
 import { useNavigate, useParams } from "react-router-dom";
 
 function FormTest(props) {
@@ -8,38 +8,37 @@ function FormTest(props) {
   const navigate = useNavigate();
 
   const [newData, setNewData] = useState({
-    course_title: "",
-    start_date: "",
-    end_date: "",
-    fees: 0.0,
-    min_score: 0,
+    email: "",
+    firstName: "",
+    lastName: "",
+    scoresObtained: 0.0,
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { id, value } = e.target;
     setNewData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [id]: value,
     }));
   };
 
-  const { id } = useParams();
+  const { courseId } = useParams();
+  const { studentId } = useParams();
+  console.log(`ids are course ${courseId} & student ${studentId}`);
 
   if (props.whichForm === "edit") {
     // page loading data
     useEffect(() => {
       console.log(`inside ${props.whichForm}`);
-
       axios
-        .get(`${server}/${id}`)
+        .get(`${server}/student/${studentId}`)
         .then((result) => {
           setNewData(result.data);
         })
         .catch((err) => {
           console.log("error getting data: " + err);
         });
-    }, [id]);
-
+    }, [studentId]);
     // console.log(
     //   `${newData.courseTitle}, ${newData.startDate}, ${newData.endDate}, ${newData.fees}, ${newData.minScore}`
     // );
@@ -49,23 +48,25 @@ function FormTest(props) {
     console.log("clicked submit button");
     event.preventDefault();
     const config = { headers: { "Content-Type": "application/json" } };
-    console.log(newData);
+    // console.log(newData);
     if (props.whichForm === "new") {
       await axios
-        .post(`${server}`, newData, config)
+        .post(`${server}/student`, newData, config)
         .then((result) => {
           console.log(result.data);
-          navigate("/");
+          navigate(`/student-table/${courseId}`);
         })
         .catch((err) => {
           console.log(err);
         });
     } else if (props.whichForm === "edit") {
-      axios
-        .put(`${server}/${id}`, newData, config)
+      console.log("in edit");
+      // console.log(newData);
+      await axios
+        .put(`${server}/student/${studentId}`, newData, config)
         .then((response) => {
           console.log(response.data + " Update successful");
-          navigate("/");
+          navigate(`/student-table/${courseId}`);
         })
         .catch((err) => {
           console.log("Unable to update: " + err);
@@ -76,18 +77,31 @@ function FormTest(props) {
   const goHome = () => {
     navigate("/");
   };
+  const studentsTable = () => {
+    navigate(`/student-table/${courseId}`);
+  };
 
   return (
     <>
-      <div className="m-3 flex justify-end">
-        <button
-          className="bg-orange-600 text-lg p-2 rounded-full duration-150 hover:bg-black hover:scale-105"
-          onClick={goHome}
-        >
-          Home
-        </button>
+      <div className="flex">
+        <div className="m-3 justify-end">
+          <button
+            className="bg-orange-600 text-lg p-2 rounded-full duration-150 hover:bg-black hover:scale-105"
+            onClick={studentsTable}
+          >
+            Students Table
+          </button>
+        </div>
+        <div className="m-3 justify-start">
+          <button
+            className="bg-orange-600 text-lg p-2 rounded-full duration-150 hover:bg-black hover:scale-105"
+            onClick={goHome}
+          >
+            Home
+          </button>
+        </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-start">
         <h1 className="p-2 rounded text-white cursor-pointer duration-100 hover:text-orange-500">
           {props.formTitle}
         </h1>
@@ -99,24 +113,89 @@ function FormTest(props) {
               <tr>
                 <td>
                   <label
-                    className="text-left p-2 text-lg"
-                    htmlFor="courseTitle"
+                    className="text-left p-2 text-lg justify-start"
+                    htmlFor="firstName"
                   >
-                    Course title:{" "}
+                    First name:
                   </label>
                 </td>
                 <td>
-                  {console.log("----------------")}
-                  {console.log("input course title")}
+                  <input
+                    className="justify-start"
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder={props.whichForm === "new" ? "first name" : ""}
+                    value={
+                      props.whichForm === "new" ? undefined : newData.firstName
+                    }
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label className="text-left p-2 text-lg" htmlFor="lastName">
+                    Last Name:
+                  </label>
+                </td>
+                <td>
                   <input
                     type="text"
-                    id="courseTitle"
-                    name="courseTitle"
-                    placeholder={props.whichForm === "new" ? "course name" : ""}
+                    id="lastName"
+                    name="lastName"
+                    placeholder={
+                      props.whichForm === "new" ? "last name" : undefined
+                    }
+                    value={
+                      props.whichForm === "new" ? undefined : newData.lastName
+                    }
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label className="text-left p-2 text-lg" htmlFor="email">
+                    Email:{" "}
+                  </label>
+                </td>
+                <td>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder={
+                      props.whichForm === "new" ? "enter email" : undefined
+                    }
+                    value={
+                      props.whichForm === "new" ? undefined : newData.email
+                    }
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label
+                    className="text-left p-2 text-lg"
+                    htmlFor="scoreObtained"
+                  >
+                    Score Obtained:{" "}
+                  </label>
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    id="scoreObtained"
+                    name="scoreObtained"
+                    placeholder={
+                      props.whichForm === "new" ? "score obtained" : ""
+                    }
                     value={
                       props.whichForm === "new"
                         ? undefined
-                        : newData.courseTitle
+                        : newData.scoreObtained
                     }
                     onChange={handleChange}
                   />
@@ -124,86 +203,17 @@ function FormTest(props) {
               </tr>
               <tr>
                 <td>
-                  <label className="text-left p-2 text-lg" htmlFor="startDate">
-                    Start date:{" "}
+                  <label className="text-left p-2 text-lg" htmlFor="courseId">
+                    Course ID:{" "}
                   </label>
                 </td>
                 <td>
-                  {console.log("input start date")}
                   <input
-                    type="text"
-                    id="startDate"
-                    name="startDate"
-                    placeholder={
-                      props.whichForm === "new"
-                        ? "course start date"
-                        : undefined
-                    }
-                    value={
-                      props.whichForm === "new" ? undefined : newData.startDate
-                    }
-                    onChange={handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label className="text-left p-2 text-lg" htmlFor="endDate">
-                    End date:{" "}
-                  </label>
-                </td>
-                <td>
-                  {console.log("input end date")}
-                  <input
-                    type="text"
-                    id="endDate"
-                    name="endDate"
-                    placeholder={
-                      props.whichForm === "new" ? "course end date" : undefined
-                    }
-                    value={
-                      props.whichForm === "new" ? undefined : newData.endDate
-                    }
-                    onChange={handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label className="text-left p-2 text-lg" htmlFor="fees">
-                    Fees:{" "}
-                  </label>
-                </td>
-                <td>
-                  {console.log("input fees")}
-                  <input
-                    type="text"
-                    id="fees"
-                    name="fees"
-                    placeholder={props.whichForm === "new" ? "fees" : ""}
-                    value={props.whichForm === "new" ? undefined : newData.fees}
-                    onChange={handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label className="text-left p-2 text-lg" htmlFor="minScore">
-                    Min score:{" "}
-                  </label>
-                </td>
-                <td>
-                  {console.log("input min score")}
-                  <input
-                    type="text"
-                    id="minScore"
-                    name="minScore"
-                    placeholder={
-                      props.whichForm === "new" ? "min score" : undefined
-                    }
-                    value={
-                      props.whichForm === "new" ? undefined : newData.minScore
-                    }
+                    type="number"
+                    id="courseId"
+                    name="courseId"
+                    value={courseId}
+                    readOnly
                     onChange={handleChange}
                   />
                 </td>
@@ -217,7 +227,6 @@ function FormTest(props) {
             >
               {props.buttonType}
             </button>
-            {console.log("----------------")}
           </div>
         </form>
       </div>

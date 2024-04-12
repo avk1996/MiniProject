@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -18,31 +19,31 @@ public class StudentServiceImple implements StudentService {
 
 	@Autowired
 	private StudentDao studentDao;
-	
+
 	@Autowired
-	private ModelMapper mapper;	
+	private ModelMapper mapper;
 
 	@Override
 	public void addStudent(StudentDto student) {
-		Student newStudent = mapper.map(student,Student.class);
+		Student newStudent = mapper.map(student, Student.class);
 		studentDao.save(newStudent);
 	}
 
 	@Override
 	public StudentDto updateStudent(StudentDto student) {
 		Student existingStudent = studentDao.findById(student.getStudentsId()).get();
-		
+
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
 		existingStudent.setEmail(student.getEmail());
 		existingStudent.setScoreObtained(student.getScoreObtained());
-		
+
 		return mapStudentToDTO(existingStudent);
 	}
 
 	@Override
-	public List<Student> showStudents() {
-		return studentDao.findAll();
+	public List<StudentDto> showStudents() {
+		return studentDao.findAll().stream().map(this::mapStudentToDTO).collect(Collectors.toList());
 	}
 
 	@Override
@@ -51,9 +52,8 @@ public class StudentServiceImple implements StudentService {
 		return mapStudentToDTO(student);
 	}
 
-	
 	private StudentDto mapStudentToDTO(Student student) {
-		StudentDto studentDto = mapper.map(student,StudentDto.class);
+		StudentDto studentDto = mapper.map(student, StudentDto.class);
 		return studentDto;
 	}
 
@@ -64,7 +64,8 @@ public class StudentServiceImple implements StudentService {
 
 	@Override
 	public void deleteStudentById(Integer id) {
-		studentDao.deleteById(id);
+		Student existingStudent = studentDao.findById(id).orElseThrow();
+		studentDao.delete(existingStudent);
 	}
 
 }
