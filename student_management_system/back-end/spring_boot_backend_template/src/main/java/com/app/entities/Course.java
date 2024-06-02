@@ -43,5 +43,5 @@ public class Course{
 	
 	// one course has many 
 	@OneToMany(mappedBy = "course")
-	List<Student> students;
+	List<Student> students;	
 }
