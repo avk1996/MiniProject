@@ -5,17 +5,17 @@ import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.rms.dto.ReviewDTO;
+import com.app.rms.entity.Review;
 import com.app.rms.service.ReviewService;
 
 import ch.qos.logback.classic.Logger;
@@ -61,4 +61,18 @@ public class ReviewController {
 			return new ResponseEntity<ReviewDTO>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	/*
+	 * Business Requirement(BR): While a review can be edited after posting, but requires a special permission to do so
+	 */
+	@PutMapping("/edit_review")
+	public ResponseEntity<ReviewDTO> editReview(@RequestBody Review review ){
+		try {
+			ReviewDTO reviewEdited = reviewService.editReview(review);
+			return new ResponseEntity<>(reviewEdited,HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			return new ResponseEntity<ReviewDTO>(HttpStatus.LOCKED);
+		}
+	}
+	
 }
