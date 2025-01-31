@@ -8,7 +8,7 @@
 
 1. Each user can give one review per movie
 2. User can give multiple reviews but one review per movie
-3. Each movie can have multiple reviws
+3. Each movie can have multiple reviews
 
 # Movie Management System
 
@@ -23,7 +23,7 @@
   - `phoneNumber` (Long)
   - `email` (String)
   - `dateOfBirth` (LocalDate): not compalsory
-  - `Gender`
+  - `Gender` (enum)
 
 ### Movie
 
@@ -41,9 +41,10 @@
 
 - **Fields**:
 
-  - `reviewId` (Integer): Unique identifier for the revies.
+  - `reviewId` (Integer): Unique identifier for the reviews.
+  - `reviewTitle` (String): Review title
   - `reviewContent` (String).
-  - `rating` (integer): 0 to 5
+  - `rating` (ENUM): 0 to 5
   - `userId` (FK)
   - `movieId` (FK)
 
