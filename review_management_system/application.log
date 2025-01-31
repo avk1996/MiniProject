@@ -1,0 +1,324 @@
+2024-11-18T00:00:43.703+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:00:43.704+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:00:43.934+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:00:43.961+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 JPA repository interface.
+2024-11-18T00:00:44.076+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:00:44.077+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:00:44.077+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:00:44.114+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/stuwork]       : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:00:44.115+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 409 ms
+2024-11-18T00:00:44.167+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:00:44.172+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:00:44.184+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:00:44.185+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-11-18T00:00:44.191+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5489de75
+2024-11-18T00:00:44.191+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-11-18T00:00:44.192+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:00:44.193+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:00:44.247+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:00:44.263+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:00:44.578+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18T00:00:44.599+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/stuwork'
+2024-11-18T00:00:44.613+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Started ReviewManagementSystemApplication in 0.998 seconds (process running for 177.276)
+2024-11-18T00:00:44.615+05:30  INFO 9620 --- [review_management_system] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-18T00:00:56.262+05:30  INFO 9620 --- [review_management_system] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-18T00:00:56.355+05:30  INFO 9620 --- [review_management_system] [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:00:56.357+05:30  INFO 9620 --- [review_management_system] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-11-18T00:00:56.361+05:30  INFO 9620 --- [review_management_system] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-11-18T00:00:56.511+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:00:56.512+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:00:56.892+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:00:56.908+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2024-11-18T00:00:57.056+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:00:57.057+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:00:57.057+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:00:57.092+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:00:57.093+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 578 ms
+2024-11-18T00:00:57.164+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:00:57.170+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:00:57.189+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:00:57.192+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-11-18T00:00:57.199+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@394ee1e1
+2024-11-18T00:00:57.200+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-11-18T00:00:57.201+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:00:57.201+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:00:57.265+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:00:57.282+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:00:57.652+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18T00:00:57.680+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/review'
+2024-11-18T00:00:57.696+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Started ReviewManagementSystemApplication in 1.258 seconds (process running for 190.361)
+2024-11-18T00:00:57.699+05:30  INFO 9620 --- [review_management_system] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-18T00:01:05.336+05:30  INFO 9620 --- [review_management_system] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-18T00:01:05.429+05:30  INFO 9620 --- [review_management_system] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:05.431+05:30  INFO 9620 --- [review_management_system] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-11-18T00:01:05.437+05:30  INFO 9620 --- [review_management_system] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-11-18T00:01:05.630+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:01:05.631+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:01:06.015+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:01:06.025+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2024-11-18T00:01:06.212+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:01:06.212+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:01:06.213+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:01:06.241+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:01:06.241+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 606 ms
+2024-11-18T00:01:06.298+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:01:06.305+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:01:06.323+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:01:06.324+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-11-18T00:01:06.331+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f86602
+2024-11-18T00:01:06.331+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-11-18T00:01:06.332+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:01:06.332+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:01:06.398+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:01:06.419+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:06.432+05:30  WARN 9620 --- [review_management_system] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+2024-11-18T00:01:06.433+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:06.433+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-11-18T00:01:06.435+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-11-18T00:01:06.436+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-18T00:01:06.447+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-11-18T00:01:06.492+05:30 ERROR 9620 --- [review_management_system] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1204) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.1.jar:3.3.1]
+	at com.app.rms.ReviewManagementSystemApplication.main(ReviewManagementSystemApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.1.jar:3.3.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1313) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token "=", ; expected
+
+	at com.app.rms.controller.ReviewController.<init>(ReviewController.java:22) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 24 common frames omitted
+
+2024-11-18T00:01:48.339+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:01:48.340+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:01:48.767+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:01:48.777+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2024-11-18T00:01:48.999+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:01:49.008+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:01:49.008+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:01:49.060+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:01:49.060+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 717 ms
+2024-11-18T00:01:49.236+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:01:49.240+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:01:49.259+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:01:49.262+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-11-18T00:01:49.269+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@334fde95
+2024-11-18T00:01:49.270+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-11-18T00:01:49.271+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:01:49.271+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:01:49.344+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:01:49.363+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:49.376+05:30  WARN 9620 --- [review_management_system] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+2024-11-18T00:01:49.377+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:49.378+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-11-18T00:01:49.414+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2024-11-18T00:01:49.415+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-18T00:01:49.429+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-11-18T00:01:49.439+05:30 ERROR 9620 --- [review_management_system] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1204) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.1.jar:3.3.1]
+	at com.app.rms.ReviewManagementSystemApplication.main(ReviewManagementSystemApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.1.jar:3.3.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1313) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from org.slf4j.Logger to ch.qos.logback.classic.Logger
+
+	at com.app.rms.controller.ReviewController.<init>(ReviewController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 24 common frames omitted
+
+2024-11-18T00:01:50.959+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:01:50.960+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:01:51.256+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:01:51.269+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 JPA repository interface.
+2024-11-18T00:01:51.431+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:01:51.433+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:01:51.433+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:01:51.472+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:01:51.472+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 507 ms
+2024-11-18T00:01:51.562+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:01:51.567+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:01:51.579+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:01:51.581+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-11-18T00:01:51.586+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55a66b3
+2024-11-18T00:01:51.586+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-11-18T00:01:51.587+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:01:51.587+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:01:51.648+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:01:51.661+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:51.672+05:30  WARN 9620 --- [review_management_system] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+2024-11-18T00:01:51.672+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:01:51.673+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2024-11-18T00:01:51.675+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2024-11-18T00:01:51.676+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-18T00:01:51.689+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-11-18T00:01:51.696+05:30 ERROR 9620 --- [review_management_system] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'reviewController' defined in file [D:\learning_stack\MiniProject\review_management_system\target\classes\com\app\rms\controller\ReviewController.class]: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1319) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1204) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.1.jar:3.3.1]
+	at com.app.rms.ReviewManagementSystemApplication.main(ReviewManagementSystemApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.1.jar:3.3.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.app.rms.controller.ReviewController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1313) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from org.slf4j.Logger to ch.qos.logback.classic.Logger
+
+	at com.app.rms.controller.ReviewController.<init>(ReviewController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195) ~[spring-beans-6.1.10.jar:6.1.10]
+	... 24 common frames omitted
+
+2024-11-18T00:02:15.453+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:02:15.454+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:02:15.736+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:02:15.747+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interface.
+2024-11-18T00:02:15.895+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:02:15.896+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:02:15.898+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:02:15.934+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:02:15.934+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 476 ms
+2024-11-18T00:02:16.036+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:02:16.043+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:02:16.061+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:02:16.063+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2024-11-18T00:02:16.069+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c038e19
+2024-11-18T00:02:16.070+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2024-11-18T00:02:16.071+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:02:16.071+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:02:16.131+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:02:16.142+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:02:16.569+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18T00:02:16.601+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/review'
+2024-11-18T00:02:16.613+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Started ReviewManagementSystemApplication in 1.199 seconds (process running for 269.276)
+2024-11-18T00:02:16.617+05:30  INFO 9620 --- [review_management_system] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-18T00:02:38.950+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/review]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18T00:02:38.952+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-18T00:02:38.955+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-18T00:03:20.170+05:30  INFO 9620 --- [review_management_system] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-18T00:03:20.276+05:30  INFO 9620 --- [review_management_system] [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:03:20.277+05:30  INFO 9620 --- [review_management_system] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2024-11-18T00:03:20.282+05:30  INFO 9620 --- [review_management_system] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2024-11-18T00:03:20.407+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Starting ReviewManagementSystemApplication using Java 17.0.11 with PID 9620 (D:\learning_stack\MiniProject\review_management_system\target\classes started by PRASAD in D:\learning_stack\MiniProject\review_management_system)
+2024-11-18T00:03:20.408+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-18T00:03:20.703+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-18T00:03:20.713+05:30  INFO 9620 --- [review_management_system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2024-11-18T00:03:20.867+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-18T00:03:20.868+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-18T00:03:20.869+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-11-18T00:03:20.906+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-11-18T00:03:20.907+05:30  INFO 9620 --- [review_management_system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 497 ms
+2024-11-18T00:03:20.974+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-18T00:03:20.979+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-18T00:03:20.992+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-18T00:03:20.994+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2024-11-18T00:03:21.008+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@19e827fc
+2024-11-18T00:03:21.009+05:30  INFO 9620 --- [review_management_system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2024-11-18T00:03:21.009+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-18T00:03:21.010+05:30  WARN 9620 --- [review_management_system] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-11-18T00:03:21.069+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-18T00:03:21.085+05:30  INFO 9620 --- [review_management_system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:03:21.579+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-18T00:03:21.598+05:30  INFO 9620 --- [review_management_system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-18T00:03:21.614+05:30  INFO 9620 --- [review_management_system] [restartedMain] c.a.r.ReviewManagementSystemApplication  : Started ReviewManagementSystemApplication in 1.244 seconds (process running for 334.279)
+2024-11-18T00:03:21.625+05:30  INFO 9620 --- [review_management_system] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-11-18T00:03:27.042+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-18T00:03:27.042+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-18T00:03:27.045+05:30  INFO 9620 --- [review_management_system] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-11-18T00:03:31.333+05:30  INFO 9620 --- [review_management_system] [RMI TCP Connection(25)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-18T00:03:31.411+05:30  INFO 9620 --- [review_management_system] [RMI TCP Connection(25)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-18T00:03:31.411+05:30  INFO 9620 --- [review_management_system] [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2024-11-18T00:03:31.416+05:30  INFO 9620 --- [review_management_system] [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
