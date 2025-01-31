@@ -9,4 +9,6 @@ public interface ReviewService {
 	public ReviewDTO postReview(ReviewDTO review);
 
 	public List<ReviewDTO> getReviews();
+	
+	public ReviewDTO getReviewById(Integer reviewId);
 }

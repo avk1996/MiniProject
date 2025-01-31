@@ -25,6 +25,10 @@ public class ReviewServiceImple implements ReviewService {
 	private Review mapReviewDTOToModel(ReviewDTO reviewDto) {
 		return mapper.map(reviewDto, Review.class);
 	}
+	
+	private ReviewDTO mapReviewToModelDTO(Review review) {
+		return mapper.map(review, ReviewDTO.class);
+	}
 
 	@Override
 	public ReviewDTO postReview(ReviewDTO reviewDto) {
@@ -38,6 +42,12 @@ public class ReviewServiceImple implements ReviewService {
 		List<ReviewDTO> availableReviews = reviewRepository.findAll().stream()
 				.map(Review -> mapper.map(Review, ReviewDTO.class)).collect(Collectors.toList());
 		return availableReviews;
+	}
+
+	@Override
+	public ReviewDTO getReviewById(Integer reviewId) {
+		Review review = reviewRepository.getReferenceById(reviewId);
+		return mapReviewToModelDTO(review);
 	}
 
 }
