@@ -6,7 +6,7 @@ import com.app.rms.dto.ReviewDTO;
 
 public interface ReviewService {
 
-	public void postReview(ReviewDTO review);
+	public ReviewDTO postReview(ReviewDTO review);
 
 	public List<ReviewDTO> getReviews();
 }
