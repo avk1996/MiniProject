@@ -8,11 +8,13 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -27,9 +27,10 @@ public class ReviewServiceImple implements ReviewService {
 	}
 
 	@Override
-	public void postReview(ReviewDTO reviewDto) {
+	public ReviewDTO postReview(ReviewDTO reviewDto) {
 		Review newReview = mapReviewDTOToModel(reviewDto);
 		reviewRepository.save(newReview);
+		return reviewDto;
 	}
 
 	@Override

@@ -28,8 +28,9 @@ public class ReviewController {
 	@PostMapping("/post_review")
 	public ResponseEntity<ReviewDTO> postReview(@RequestBody ReviewDTO reviewDto) {
 		try {
-			reviewService.postReview(reviewDto);
-			return new ResponseEntity<ReviewDTO>(HttpStatus.CREATED);
+			//logger.info("In controller: "+reviewDto.toString());
+			ReviewDTO review = reviewService.postReview(reviewDto);
+			return new ResponseEntity<>(review, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<ReviewDTO>(HttpStatus.BAD_REQUEST);
 		}
@@ -38,11 +39,10 @@ public class ReviewController {
 	@GetMapping("/get_reviews")
 	public ResponseEntity<List<ReviewDTO>> getReviews() {
 		try {
-			logger.info("Inside get reviews");
 			List<ReviewDTO> reviews = reviewService.getReviews();
 			if (reviews.isEmpty())
 				return ResponseEntity.noContent().build();
-			reviews.forEach(System.out::println);
+			//logger.info("Retrived {} size", reviews.size());
 			return ResponseEntity.ok(reviews);
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
