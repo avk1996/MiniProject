@@ -61,6 +61,7 @@ public class ReviewServiceImple implements ReviewService {
 		
 		Review editReview = reviewRepository.findById(reviewId)
 				.map(existingReview ->{
+					existingReview.setTitleReview(review.getTitleReview());
 					existingReview.setReviewContent(review.getReviewContent());
 					existingReview.setRating(review.getRating());
 					return reviewRepository.save(existingReview);
@@ -68,6 +69,16 @@ public class ReviewServiceImple implements ReviewService {
 		
 		reviewRepository.save(editReview);
 		return mapReviewToModelDTO(editReview);
+	}
+
+	@Override
+	public ReviewDTO deleteReview(Integer reviewId) {
+		Review review = reviewRepository.getReferenceById(reviewId);
+		if(review != null) {			
+			reviewRepository.deleteById(reviewId);
+			return mapReviewToModelDTO(review);
+		}
+		return null;
 	}
 
 }

@@ -14,4 +14,6 @@ public interface ReviewService {
 	public ReviewDTO getReviewById(Integer reviewId);
 	
 	public ReviewDTO editReview(Review review);
+
+	public ReviewDTO deleteReview(Integer reviewId);
 }

@@ -18,11 +18,14 @@ import lombok.ToString;
 public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private Integer reviewId;
-	
-	@Column(name="content")
+
+	@Column(name = "content")
 	private String reviewContent;
-	
+
 	private int rating;
+	
+	@Column(name = "title_review")
+	private String titleReview;
 }
