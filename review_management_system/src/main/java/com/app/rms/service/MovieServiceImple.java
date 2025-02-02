@@ -21,7 +21,7 @@ import jakarta.transaction.Transactional;
 public class MovieServiceImple implements MovieService {
 
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(MovieServiceImple.class);
-	
+
 	@Autowired
 	MovieRepository movieRepository;
 
@@ -44,6 +44,30 @@ public class MovieServiceImple implements MovieService {
 	@Override
 	public MovieDTO getMovie(Integer movieId) {
 		Movie movie = movieRepository.getReferenceById(movieId);
+		return mapMovieToDTO(movie);
+	}
+
+	@Override
+	public MovieDTO editMovieDetails(Movie movie) {
+		Integer movieId = movie.getMovieId();
+
+		Movie editMovie = movieRepository.findById(movieId).map(exisitingMovie -> {
+			exisitingMovie.setMovieName(movie.getMovieName());
+			exisitingMovie.setRatings(movie.getRatings());
+			exisitingMovie.setGenre(movie.getGenre());
+			exisitingMovie.setBudget(movie.getBudget());
+			exisitingMovie.setReleaseDate(movie.getReleaseDate());
+			return movieRepository.save(exisitingMovie);
+		}).orElseThrow(() -> null);
+
+		return mapMovieToDTO(movieRepository.save(editMovie));
+	}
+
+	@Override
+	public MovieDTO deleteMovieDetails(Integer movieId) {
+		Movie movie = movieRepository.findById(movieId).orElseThrow(() -> null);
+		if (movie != null)
+			movieRepository.deleteById(movieId);
 		return mapMovieToDTO(movie);
 	}
 }

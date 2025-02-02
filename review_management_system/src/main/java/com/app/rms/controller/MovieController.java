@@ -6,9 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +27,7 @@ public class MovieController {
 
 	@Autowired
 	MovieService movieService;
-	
+
 	private static final Logger logger = (Logger) LoggerFactory.getLogger(MovieController.class);
 
 	@PostMapping("/register_movie")
@@ -37,26 +39,51 @@ public class MovieController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	@GetMapping("/get_movies")
 	public ResponseEntity<List<MovieDTO>> getMovies() {
 		try {
 			List<MovieDTO> movies = movieService.getMovies();
 			return new ResponseEntity<>(movies, HttpStatus.ACCEPTED);
 		} catch (Exception e) {
-			logger.info("Exception: "+e.getMessage());
+			logger.info("Exception: " + e.getMessage());
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@GetMapping("/get_movie/{movieId}")
+	public ResponseEntity<MovieDTO> getMovie(@PathVariable Integer movieId) {
+		try {
+			MovieDTO movie = movieService.getMovie(movieId);
+			return new ResponseEntity<>(movie, HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			logger.info("Exception: " + e.getMessage());
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PutMapping("/edit_movie_details")
+	public ResponseEntity<MovieDTO> editMovieDetails(@RequestBody Movie movie) {
+		try {
+			MovieDTO editMovieDetails = movieService.editMovieDetails(movie);
+			return new ResponseEntity<>(editMovieDetails, HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			return new ResponseEntity<MovieDTO>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	/*
+	 * BR: If movie owner or representive reported to not post about movie.
+	 * 
+	 * */
+	@DeleteMapping("/delete_movie_detail/{movieId}")
+	public ResponseEntity<MovieDTO> deleteMovieDetails(@PathVariable Integer movieId){
+		try {
+			MovieDTO deletedMovie = movieService.deleteMovieDetails(movieId);
+			return new ResponseEntity<>(deletedMovie,HttpStatus.ACCEPTED);
+		} catch (Exception e) {
+			return new ResponseEntity<MovieDTO>(HttpStatus.BAD_REQUEST);
 		}
 	}
 	
-	@GetMapping("/get_movie/{movieId}")
-	public ResponseEntity<MovieDTO> getMovie(@PathVariable Integer movieId){
-		try {
-			MovieDTO movie = movieService.getMovie(movieId);
-			return new ResponseEntity<>(movie,HttpStatus.ACCEPTED);
-		} catch (Exception e) {
-			logger.info("Exception: "+e.getMessage());
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-	}
 }

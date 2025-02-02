@@ -13,4 +13,8 @@ public interface MovieService {
 	
 	public MovieDTO getMovie(Integer movieId);
 
+	public MovieDTO editMovieDetails(Movie movie);
+
+	public MovieDTO deleteMovieDetails(Integer movieId);
+
 }
