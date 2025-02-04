@@ -20,10 +20,10 @@
   - `userId` (Integer): Unique identifier for the user.
   - `name` (String): Name of the user.
   - `password` (String): User's password (hashed).
-  - `phoneNumber` (Long)
+  - `phoneNumber` (String)
   - `email` (String)
   - `dateOfBirth` (LocalDate): not compalsory
-  - `Gender`
+  - `Gender` (Enum)
 
 ### Movie
 
