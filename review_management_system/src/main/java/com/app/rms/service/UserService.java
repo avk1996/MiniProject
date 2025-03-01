@@ -3,6 +3,7 @@ package com.app.rms.service;
 import java.util.List;
 
 import com.app.rms.dto.UserDTO;
+import com.app.rms.dto.UserPasswordDTO;
 import com.app.rms.entity.User;
 
 public interface UserService {
@@ -17,4 +18,5 @@ public interface UserService {
 
 	public UserDTO deleteUserDetail(Integer userId);
 
+	public void resetPassword(UserPasswordDTO passwords);
 }

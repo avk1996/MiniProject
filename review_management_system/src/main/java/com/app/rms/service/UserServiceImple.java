@@ -3,17 +3,30 @@ package com.app.rms.service;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.app.rms.dto.UserDTO;
+import com.app.rms.dto.UserPasswordDTO;
 import com.app.rms.entity.User;
 import com.app.rms.repository.UserRepository;
 
+import ch.qos.logback.classic.Logger;
+import jakarta.transaction.Transactional;
+
+@Service
+@Transactional
 public class UserServiceImple implements UserService {
 
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(UserServiceImple.class);
+	
 	@Autowired
 	private UserRepository userRepository;
 
+	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	private final ModelMapper mapper = new ModelMapper();
 
 	private UserDTO mapUserToUserDTO(User user) {
@@ -22,6 +35,7 @@ public class UserServiceImple implements UserService {
 
 	@Override
 	public UserDTO registerUser(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return mapUserToUserDTO(userRepository.save(user));
 	}
 
@@ -46,7 +60,7 @@ public class UserServiceImple implements UserService {
 			existingUser.setName(user.getName());
 			existingUser.setGender(user.getGender());
 			existingUser.setPhoneNumber(user.getPhoneNumber());
-			return userRepository.save(existingUser);
+			return existingUser;
 		}).orElseThrow(() -> null);
 		userRepository.save(editUser);
 		return mapUserToUserDTO(editUser);
@@ -55,9 +69,28 @@ public class UserServiceImple implements UserService {
 	@Override
 	public UserDTO deleteUserDetail(Integer userId) {
 		User user = userRepository.getReferenceById(userId);
-		if (user != null)
-			userRepository.deleteById(userId);
+		userRepository.deleteById(userId);
 		return mapUserToUserDTO(user);
+	}
+
+	@Override
+	public void resetPassword(UserPasswordDTO passwordsDTO){
+		Integer userId = passwordsDTO.getUserId();
+		User isUserExists = userRepository.getReferenceById(userId);
+		logger.info("New password: {}, Old password: {}", passwordsDTO.getNewPassword(), passwordsDTO.getOldPassword());
+		logger.info("New password: {}, Old password: {}", passwordEncoder.encode(passwordsDTO.getOldPassword()),
+				isUserExists.getPassword());
+		boolean isPasswordMatch = passwordEncoder.matches(passwordsDTO.getOldPassword(),
+				isUserExists.getPassword());
+		if (isPasswordMatch) {
+			User resetPass = userRepository.findById(userId).map(reset -> {
+				reset.setPassword(passwordEncoder.encode(passwordsDTO.getNewPassword()));
+				return reset;
+			}).orElse(null);
+			userRepository.save(resetPass);
+		}else {
+			throw new IllegalArgumentException("Invalid password. Please try again.");
+		}
 	}
 
 }

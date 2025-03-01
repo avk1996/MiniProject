@@ -1,7 +1,5 @@
 package com.app.rms.dto;
 
-import com.app.rms.enums.Gender;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
-	private String name;
-	private Gender gender;
+public class UserPasswordDTO {
+	private Integer userId;
+	private String newPassword;
+	private String oldPassword;
 }
